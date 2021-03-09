@@ -1,0 +1,22 @@
+<templateSet group="Starbound Text">
+  <template name="scolor"
+            value="^$CODE$;$SELECTION$^reset;$END$"
+            description="Surround with colorful text markers"
+            toReformat="false" toShortenFQNames="true">
+    <variable name="CODE" expression="" defaultValue="" alwaysStopAt="true"/>
+    <context>
+      <option name="STARBOUND_TEXT" value="true"/>
+    </context>
+  </template>
+
+  <template name="color"
+            value="^$CODE$;$TEXT$^reset;$END$"
+            description="Insert a colorful text fragment"
+            toReformat="false" toShortenFQNames="true">
+    <variable name="CODE" expression="" defaultValue="" alwaysStopAt="true"/>
+    <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true"/>
+    <context>
+      <option name="STARBOUND_TEXT" value="true"/>
+    </context>
+  </template>
+</templateSet>

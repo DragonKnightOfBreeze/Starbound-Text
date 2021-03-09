@@ -1,0 +1,92 @@
+<idea-plugin>
+  <id>com.windea.sbtext</id>
+  <name>StarBound Text</name>
+  <category>Languages</category>
+
+  <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
+
+  <description><![CDATA[
+    <p>Starbound Text support.</p>
+    <p>
+      This plugin is developed to help maintaining and updating
+      <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>.
+    </p>
+    <p>Example:</p>
+    <p>
+      <code>
+        This is some ^red;red^reset; text.
+        And this is some ^#f8f8f8;custom color^reset; text.
+      </code>
+    </p>
+    <p>Main Feature:</p>
+    <ol>
+      <li>Syntax analysis.</li>
+      <li>Code highlight by related color and code completion for color markers.</li>
+      <li>Code folding for color markers</li>
+      <li>Dynamic template for quickly inserting colored text. Enter<code>color</code> in the correct position to see it.</li>
+    </ol>
+    <p>
+      Note: 
+      This plugin does not provide default file extensions to associate <code>Starbound Text</code> language,
+      please customize a File Type or use Language Injection.
+    </p>
+
+    <br>
+
+    <p>Starbound文本支持。</p>
+    <p>
+      编写这个插件是为了便于维护和更新
+      <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。
+    </p>
+    <p>示例：</p>
+    <p>
+      <code>
+        This is some ^red;red^reset; text.
+        And this is some ^#f8f8f8;custom color^reset; text.
+      </code>
+    </p>
+    <p>主要功能：</p>
+    <ol>
+      <li>语法解析。</li>
+      <li>为颜色标记提供对应颜色的代码高亮以及代码补全。</li>
+      <li>折叠颜色标记。</li>
+      <li>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到。</li>
+    </ol>
+    <p>
+      注意：
+      这个插件不提供默认的文件后缀名以关联<code>Starbound文本</code>语言，
+      请自定义文件类型或者使用语言注入功能。
+    </p>
+    ]]></description>
+
+  <change-notes><![CDATA[
+    <p>
+      Please see the
+      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/CHANGELOG.md">CHANGELOG</a> written by Simple Chinese.
+    </p>
+
+    <br>
+
+    <p>
+      请查看<a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/CHANGELOG.md">CHANGELOG</a>。
+    </p>
+    ]]></change-notes>
+
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileType name="Starbound Text File" implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType" fieldName="INSTANCE" language="Starbound Text"/>
+    <lang.parserDefinition language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.psi.SbTextParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.highlighter.SbTextSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="com.windea.plugin.idea.sbtext.highlighter.SbTextColorSettingsPage"/>
+    <spellchecker.support language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.SbTextSpellchecker"/>
+    <elementDescriptionProvider implementation="com.windea.plugin.idea.sbtext.editor.SbTextDescriptionProvider"/>
+    <completion.contributor language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.codeInsight.SbTextCompletionContributor"/>
+    <lang.foldingBuilder language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.editor.SbTextFoldingBuilder"/>
+    <liveTemplateContext implementation="com.windea.plugin.idea.sbtext.editor.SbTextTemplateContext"/>
+    <defaultLiveTemplates file="/liveTemplates/StarboundText.xml"/>
+    <annotator language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.editor.SbTextAnnotator"/>
+    <!--不启用：可能一行中显示了太多的颜色图标-->
+    <!--<colorProvider implementation="com.windea.plugin.idea.sbtext.editor.SbTextColorProvider"/>-->
+  </extensions>
+</idea-plugin>
