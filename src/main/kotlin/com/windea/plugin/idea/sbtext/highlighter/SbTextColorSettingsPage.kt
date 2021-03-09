@@ -5,7 +5,6 @@ package com.windea.plugin.idea.sbtext.highlighter
 import com.intellij.openapi.fileTypes.*
 import com.intellij.openapi.options.colors.*
 import com.windea.plugin.idea.sbtext.*
-import com.windea.plugin.idea.sbtext.SbTextBundle.message
 
 class SbTextColorSettingsPage : ColorSettingsPage{
 	companion object{

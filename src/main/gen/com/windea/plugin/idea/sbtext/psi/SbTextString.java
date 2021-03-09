@@ -5,7 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface SbTextString extends PsiElement {
+public interface SbTextString extends SbTextRichText {
 
   @NotNull
   PsiElement getTextToken();

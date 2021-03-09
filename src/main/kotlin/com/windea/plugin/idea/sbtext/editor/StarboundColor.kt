@@ -27,10 +27,10 @@ enum class StarboundColor(
 	Purple("purple",Color(0x800080)),
 	Indigo("indigo",Color(0x4b0082)),
 	Brown("brown",Color(0xa52a2a)),
-	White("white",Color(0x000000)),
-	Black("black",Color(0x00ffff)),
+	White("white",Color(0xffffff)),
+	Black("black",Color(0x000000)),
 	CornFlowerBlue("cornflowerblue",Color(0x6495ed)),
-	Shadow("shadow",Color(0x2f4f4f)),
+	Shadow("shadow",Color(0x555555)),
 	Gray("gray",Color(0x808080)),
 	Grey("grey",Color(0x808080));
 

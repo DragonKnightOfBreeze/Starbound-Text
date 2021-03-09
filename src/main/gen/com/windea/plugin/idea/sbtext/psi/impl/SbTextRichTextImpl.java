@@ -11,7 +11,7 @@ import static com.windea.plugin.idea.sbtext.psi.SbTextTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.sbtext.psi.*;
 
-public class SbTextRichTextImpl extends ASTWrapperPsiElement implements SbTextRichText {
+public abstract class SbTextRichTextImpl extends ASTWrapperPsiElement implements SbTextRichText {
 
   public SbTextRichTextImpl(@NotNull ASTNode node) {
     super(node);
@@ -25,36 +25,6 @@ public class SbTextRichTextImpl extends ASTWrapperPsiElement implements SbTextRi
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof SbTextVisitor) accept((SbTextVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @Nullable
-  public SbTextColorMarker getColorMarker() {
-    return findChildByClass(SbTextColorMarker.class);
-  }
-
-  @Override
-  @Nullable
-  public SbTextColorResetMarker getColorResetMarker() {
-    return findChildByClass(SbTextColorResetMarker.class);
-  }
-
-  @Override
-  @Nullable
-  public SbTextColorfulText getColorfulText() {
-    return findChildByClass(SbTextColorfulText.class);
-  }
-
-  @Override
-  @Nullable
-  public SbTextEscape getEscape() {
-    return findChildByClass(SbTextEscape.class);
-  }
-
-  @Override
-  @Nullable
-  public SbTextString getString() {
-    return findChildByClass(SbTextString.class);
   }
 
 }

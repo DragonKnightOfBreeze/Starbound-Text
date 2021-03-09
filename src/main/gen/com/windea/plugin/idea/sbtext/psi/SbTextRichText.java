@@ -7,19 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface SbTextRichText extends PsiElement {
 
-  @Nullable
-  SbTextColorMarker getColorMarker();
-
-  @Nullable
-  SbTextColorResetMarker getColorResetMarker();
-
-  @Nullable
-  SbTextColorfulText getColorfulText();
-
-  @Nullable
-  SbTextEscape getEscape();
-
-  @Nullable
-  SbTextString getString();
-
 }

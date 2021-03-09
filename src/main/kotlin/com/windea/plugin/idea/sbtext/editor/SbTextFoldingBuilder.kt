@@ -5,8 +5,6 @@ import com.intellij.lang.folding.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.intellij.psi.impl.file.*
-import com.intellij.psi.tree.*
 import com.intellij.psi.util.*
 import com.windea.plugin.idea.sbtext.psi.*
 
@@ -21,9 +19,10 @@ class SbTextFoldingBuilder : FoldingBuilder, DumbAware {
 	override fun buildFoldRegions(node: ASTNode, document: Document): Array<FoldingDescriptor> {
 		val result = mutableListOf<FoldingDescriptor>()
 		val file = node.psi.containingFile ?: return FoldingDescriptor.EMPTY
-		file.accept(object:PsiRecursiveElementVisitor(){
+		file.acceptChildren(object:PsiRecursiveElementVisitor(){
 			override fun visitElement(element: PsiElement) {
 				when(element){
+					is SbTextColorfulText -> super.visitElement(element)
 					is SbTextColorMarker -> result += FoldingDescriptor(element.node,element.textRange,foldingGroup)
 					is SbTextColorResetMarker -> result += FoldingDescriptor(element.node,element.textRange,foldingGroup)
 				}
@@ -32,7 +31,7 @@ class SbTextFoldingBuilder : FoldingBuilder, DumbAware {
 		return result.toTypedArray()
 	}
 
-	override fun getPlaceholderText(node: ASTNode): String? {
+	override fun getPlaceholderText(node: ASTNode): String {
 		return "<>"
 	}
 

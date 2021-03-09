@@ -4,7 +4,7 @@ import com.intellij.lang.annotation.*
 import com.intellij.lang.annotation.HighlightSeverity.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.windea.plugin.idea.sbtext.SbTextBundle.message
+import com.windea.plugin.idea.sbtext.*
 import com.windea.plugin.idea.sbtext.highlighter.SbTextAttributesKeys.COLORFUL_TEXT_KEYS
 import com.windea.plugin.idea.sbtext.highlighter.SbTextAttributesKeys.createColorfulTextKey
 import com.windea.plugin.idea.sbtext.psi.*
@@ -17,7 +17,8 @@ class SbTextAnnotator : Annotator, DumbAware {
 				val colorId = element.name ?: return
 				val color = element.color
 				if(color == null) {
-					holder.newAnnotation(ERROR, message("sbText.annotator.unsupportedColor", colorId)).create()
+					holder.newAnnotation(ERROR, message("sbText.annotator.unsupportedColor", colorId))
+						.range(element.colorMarker).create()
 				} else {
 					annotateColor(colorId,color, holder, element)
 				}

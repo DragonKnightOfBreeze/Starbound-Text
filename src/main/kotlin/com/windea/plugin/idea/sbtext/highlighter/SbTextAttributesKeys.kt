@@ -4,7 +4,7 @@ import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
 import com.intellij.openapi.editor.HighlighterColors.*
 import com.intellij.openapi.editor.colors.*
 import com.intellij.openapi.editor.colors.TextAttributesKey.*
-import com.windea.plugin.idea.sbtext.SbTextBundle.message
+import com.windea.plugin.idea.sbtext.*
 import com.windea.plugin.idea.sbtext.editor.*
 import java.awt.*
 

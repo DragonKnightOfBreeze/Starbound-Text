@@ -2,6 +2,7 @@ package com.windea.plugin.idea.sbtext.psi.impl
 
 import com.intellij.psi.*
 import com.intellij.refactoring.suggested.*
+import com.windea.plugin.idea.sbtext.*
 import com.windea.plugin.idea.sbtext.editor.*
 import com.windea.plugin.idea.sbtext.editor.StarboundColor.Companion.colorCache
 import com.windea.plugin.idea.sbtext.psi.*
@@ -30,16 +31,20 @@ object SbTextPsiImplUtil {
 
 	@JvmStatic
 	fun getColor(element:SbTextColorfulText): Color? {
-		val colorCode = element.name
-		return when{
-			colorCode == null ->  null
-			colorCode.startsWith("#") -> colorCache.getOrPut(colorCode){ 
-				colorCode.drop(1).toIntOrNull(16)?.let { Color(it) }
+		try {
+			val colorCode = element.name
+			return when{
+				colorCode == null ->  null
+				colorCode.startsWith("#") -> colorCache.getOrPut(colorCode){
+					colorCode.toColorOrNull()
+				}
+				else -> StarboundColor.map[colorCode]?.color
 			}
-			else -> StarboundColor.map[colorCode]?.color
+		} catch(e: Exception) {
+			return null
 		}
 	}
-
+	
 	@JvmStatic
 	fun setColor(element:SbTextColorfulText,color:Color){
 		//什么都不做

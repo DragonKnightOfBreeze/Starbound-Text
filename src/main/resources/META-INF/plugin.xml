@@ -88,5 +88,13 @@
     <annotator language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.editor.SbTextAnnotator"/>
     <!--不启用：可能一行中显示了太多的颜色图标-->
     <!--<colorProvider implementation="com.windea.plugin.idea.sbtext.editor.SbTextColorProvider"/>-->
+
+    <localInspection
+        language="Starbound Text"
+        shortName="UnnecessaryMarker" bundle="messages.SbTextBundle"
+        groupKey="sbText.inspection"
+        key="sbText.inspection.unnecessaryMarker"
+        enabledByDefault="true" level="WARNING"
+        implementationClass="com.windea.plugin.idea.sbtext.inspections.UnnecessaryMarkerInspection"/>
   </extensions>
 </idea-plugin>

@@ -8,15 +8,15 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.sbtext.psi.SbTextTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.sbtext.psi.*;
 
-public class SbTextStringImpl extends ASTWrapperPsiElement implements SbTextString {
+public class SbTextStringImpl extends SbTextRichTextImpl implements SbTextString {
 
   public SbTextStringImpl(@NotNull ASTNode node) {
     super(node);
   }
 
+  @Override
   public void accept(@NotNull SbTextVisitor visitor) {
     visitor.visitString(this);
   }

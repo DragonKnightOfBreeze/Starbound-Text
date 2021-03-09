@@ -38,9 +38,6 @@ public interface SbTextTypes {
       else if (type == ESCAPE) {
         return new SbTextEscapeImpl(node);
       }
-      else if (type == RICH_TEXT) {
-        return new SbTextRichTextImpl(node);
-      }
       else if (type == STRING) {
         return new SbTextStringImpl(node);
       }

@@ -2,7 +2,7 @@ package com.windea.plugin.idea.sbtext.editor
 
 import com.intellij.psi.*
 import com.intellij.usageView.*
-import com.windea.plugin.idea.sbtext.SbTextBundle.message
+import com.windea.plugin.idea.sbtext.*
 import com.windea.plugin.idea.sbtext.psi.*
 
 class SbTextDescriptionProvider : ElementDescriptionProvider {

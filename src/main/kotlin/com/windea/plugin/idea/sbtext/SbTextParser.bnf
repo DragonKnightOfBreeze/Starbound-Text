@@ -21,10 +21,11 @@
 	]
 }
 
-root ::= rich_text *
-rich_text ::= colorful_text | color_reset_marker | color_marker  | escape | string
-colorful_text ::=  color_marker string color_reset_marker? {
+root ::= (rich_text | color_reset_marker) *
+rich_text ::=  colorful_text | escape | string 
+colorful_text ::=  color_marker string? color_reset_marker? {
   pin=1
+  extends=rich_text
   mixin="com.windea.plugin.idea.sbtext.psi.impl.SbTextNamedElementImpl"
   implements="com.windea.plugin.idea.sbtext.psi.SbTextNamedElement"
   methods=[getName setName getNameIdentifier getTextOffset getColor setColor]
@@ -33,5 +34,9 @@ color_marker ::= COLOR_MARKER_START COLOR_CODE COLOR_MARKER_END {
   pin=1
 }
 color_reset_marker ::= COLOR_RESET_MARKER_TOKEN
-escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN
-string ::= TEXT_TOKEN
+escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN{
+  extends=rich_text
+}
+string ::= TEXT_TOKEN{
+  extends=rich_text
+}

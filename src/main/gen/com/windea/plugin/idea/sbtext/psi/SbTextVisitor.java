@@ -16,11 +16,12 @@ public class SbTextVisitor extends PsiElementVisitor {
   }
 
   public void visitColorfulText(@NotNull SbTextColorfulText o) {
-    visitNamedElement(o);
+    visitRichText(o);
+    // visitNamedElement(o);
   }
 
   public void visitEscape(@NotNull SbTextEscape o) {
-    visitPsiElement(o);
+    visitRichText(o);
   }
 
   public void visitRichText(@NotNull SbTextRichText o) {
@@ -28,11 +29,7 @@ public class SbTextVisitor extends PsiElementVisitor {
   }
 
   public void visitString(@NotNull SbTextString o) {
-    visitPsiElement(o);
-  }
-
-  public void visitNamedElement(@NotNull SbTextNamedElement o) {
-    visitPsiElement(o);
+    visitRichText(o);
   }
 
   public void visitPsiElement(@NotNull PsiElement o) {

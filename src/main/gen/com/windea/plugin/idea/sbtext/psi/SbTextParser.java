@@ -21,7 +21,7 @@ public class SbTextParser implements PsiParser, LightPsiParser {
 
   public void parseLight(IElementType t, PsiBuilder b) {
     boolean r;
-    b = adapt_builder_(t, b, this, null);
+    b = adapt_builder_(t, b, this, EXTENDS_SETS_);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
     r = parse_root_(t, b);
     exit_section_(b, 0, m, t, r, true, TRUE_CONDITION);
@@ -34,6 +34,10 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   static boolean parse_root_(IElementType t, PsiBuilder b, int l) {
     return root(b, l + 1);
   }
+
+  public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
+    create_token_set_(COLORFUL_TEXT, ESCAPE, RICH_TEXT, STRING),
+  };
 
   /* ********************************************************** */
   // COLOR_MARKER_START COLOR_CODE COLOR_MARKER_END
@@ -61,7 +65,7 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // color_marker string color_reset_marker?
+  // color_marker string? color_reset_marker?
   public static boolean colorful_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text")) return false;
     if (!nextTokenIs(b, COLOR_MARKER_START)) return false;
@@ -69,10 +73,17 @@ public class SbTextParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, COLORFUL_TEXT, null);
     r = color_marker(b, l + 1);
     p = r; // pin = 1
-    r = r && report_error_(b, string(b, l + 1));
+    r = r && report_error_(b, colorful_text_1(b, l + 1));
     r = p && colorful_text_2(b, l + 1) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // string?
+  private static boolean colorful_text_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "colorful_text_1")) return false;
+    string(b, l + 1);
+    return true;
   }
 
   // color_reset_marker?
@@ -96,14 +107,12 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // colorful_text | color_reset_marker | color_marker  | escape | string
+  // colorful_text | escape | string
   public static boolean rich_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rich_text")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, RICH_TEXT, "<rich text>");
+    Marker m = enter_section_(b, l, _COLLAPSE_, RICH_TEXT, "<rich text>");
     r = colorful_text(b, l + 1);
-    if (!r) r = color_reset_marker(b, l + 1);
-    if (!r) r = color_marker(b, l + 1);
     if (!r) r = escape(b, l + 1);
     if (!r) r = string(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -111,15 +120,24 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // rich_text *
+  // (rich_text | color_reset_marker) *
   static boolean root(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!rich_text(b, l + 1)) break;
+      if (!root_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "root", c)) break;
     }
     return true;
+  }
+
+  // rich_text | color_reset_marker
+  private static boolean root_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "root_0")) return false;
+    boolean r;
+    r = rich_text(b, l + 1);
+    if (!r) r = color_reset_marker(b, l + 1);
+    return r;
   }
 
   /* ********************************************************** */

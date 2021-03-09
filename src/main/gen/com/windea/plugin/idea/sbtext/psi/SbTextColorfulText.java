@@ -6,7 +6,7 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import java.awt.Color;
 
-public interface SbTextColorfulText extends SbTextNamedElement {
+public interface SbTextColorfulText extends SbTextRichText, SbTextNamedElement {
 
   @NotNull
   SbTextColorMarker getColorMarker();
