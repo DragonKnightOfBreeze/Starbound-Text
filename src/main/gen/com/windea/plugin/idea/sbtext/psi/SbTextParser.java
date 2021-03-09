@@ -96,14 +96,14 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // colorful_text | color_marker | color_reset_marker | escape | string
+  // colorful_text | color_reset_marker | color_marker  | escape | string
   public static boolean rich_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rich_text")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, RICH_TEXT, "<rich text>");
     r = colorful_text(b, l + 1);
-    if (!r) r = color_marker(b, l + 1);
     if (!r) r = color_reset_marker(b, l + 1);
+    if (!r) r = color_marker(b, l + 1);
     if (!r) r = escape(b, l + 1);
     if (!r) r = string(b, l + 1);
     exit_section_(b, l, m, r, false, null);

@@ -22,7 +22,7 @@
 }
 
 root ::= rich_text *
-rich_text ::= colorful_text | color_marker | color_reset_marker | escape | string
+rich_text ::= colorful_text | color_reset_marker | color_marker  | escape | string
 colorful_text ::=  color_marker string color_reset_marker? {
   pin=1
   mixin="com.windea.plugin.idea.sbtext.psi.impl.SbTextNamedElementImpl"

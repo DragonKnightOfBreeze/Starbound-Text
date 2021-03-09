@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.windea"
-version = "1.7"
+version = "1.8"
 
 intellij {
 	version = "2020.3.2"
@@ -42,14 +42,9 @@ sourceSets {
 
 tasks {
 	compileKotlin {
-		kotlinOptions.jvmTarget = "8"
+		kotlinOptions.jvmTarget = "1.8"
 	}
 	compileTestKotlin {
-		kotlinOptions.jvmTarget = "8"
+		kotlinOptions.jvmTarget = "1.8"
 	}
-}
-
-grammarKit {
-	jflexRelease = "1.7.0-2"
-	grammarKitRelease = "2020.3.2"
 }

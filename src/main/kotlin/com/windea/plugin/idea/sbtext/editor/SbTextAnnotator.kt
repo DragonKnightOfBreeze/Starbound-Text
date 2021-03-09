@@ -17,7 +17,7 @@ class SbTextAnnotator : Annotator, DumbAware {
 				val colorId = element.name ?: return
 				val color = element.color
 				if(color == null) {
-					holder.newAnnotation(WARNING, message("sbText.annotator.unsupportedColor", colorId)).create()
+					holder.newAnnotation(ERROR, message("sbText.annotator.unsupportedColor", colorId)).create()
 				} else {
 					annotateColor(colorId,color, holder, element)
 				}
@@ -29,12 +29,11 @@ class SbTextAnnotator : Annotator, DumbAware {
 		val attributesKey = COLORFUL_TEXT_KEYS.getOrPut(colorId){
 			createColorfulTextKey(colorId,color)
 		}
-		//高亮所有的颜色文本
+		//高亮颜色文本
 		//val strings = element.collectDescendantsOfType<SbTextString>()
 		//for(string in strings) {
 		//	holder.newSilentAnnotation(INFORMATION).range(string).textAttributes(attributesKey).create()
 		//}
-		//高亮所有的颜色码
 		val string = element.string?:return
 		holder.newSilentAnnotation(INFORMATION).range(string).textAttributes(attributesKey).create()
 	}

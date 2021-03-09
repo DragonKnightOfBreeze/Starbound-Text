@@ -14,7 +14,7 @@ class SbTextCompletionContributor : CompletionContributor() {
 			for(color in StarboundColor.values) {
 				result.addElement(LookupElementBuilder.create(color.key).withIcon(color.icon))
 			}
-			result.addElement(LookupElementBuilder.create("reset"))
+			result.addElement(LookupElementBuilder.create("reset").withBoldness(true))
 		}
 	}
 

@@ -17,8 +17,8 @@ And this is some ^#f8f8f8;custom color^reset; text.
 Main Feature:
 
 1. Syntax analysis.
-2. Code highlight by related color and code completion for color markers.
-3. Code folding for color markers
+2. Code completion and code folding for color markers.
+3. Code hignlight by related color for colorful text.
 4. Dynamic template for quickly inserting colored text. Enter`color` in the correct position to see it.
 
 Note: 

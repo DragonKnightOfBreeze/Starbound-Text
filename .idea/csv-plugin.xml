@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\main\kotlin\com\windea\plugin\idea\sbtext\SbTextLexer.flex">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\main\kotlin\com\windea\plugin\idea\sbtext\SbTextParser.bnf">
           <value>
             <Attribute>

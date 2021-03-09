@@ -21,8 +21,8 @@
     <p>Main Feature:</p>
     <ol>
       <li>Syntax analysis.</li>
-      <li>Code highlight by related color and code completion for color markers.</li>
-      <li>Code folding for color markers</li>
+      <li>Code completion and code folding for color markers.</li>
+      <li>Code hignlight by related color for colorful text.</li>
       <li>Dynamic template for quickly inserting colored text. Enter<code>color</code> in the correct position to see it.</li>
     </ol>
     <p>
@@ -48,8 +48,8 @@
     <p>主要功能：</p>
     <ol>
       <li>语法解析。</li>
-      <li>为颜色标记提供对应颜色的代码高亮以及代码补全。</li>
-      <li>折叠颜色标记。</li>
+      <li>提示颜色标记的代码补全和代码折叠。</li>
+      <li>使用对应的颜色高亮彩色文本。</li>
       <li>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到。</li>
     </ol>
     <p>
