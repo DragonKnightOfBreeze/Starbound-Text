@@ -53,19 +53,7 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COLOR_RESET_MARKER_TOKEN
-  public static boolean color_reset_marker(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "color_reset_marker")) return false;
-    if (!nextTokenIs(b, COLOR_RESET_MARKER_TOKEN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, COLOR_RESET_MARKER_TOKEN);
-    exit_section_(b, m, COLOR_RESET_MARKER, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // color_marker string? color_reset_marker?
+  // color_marker string? reset_marker?
   public static boolean colorful_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text")) return false;
     if (!nextTokenIs(b, COLOR_MARKER_START)) return false;
@@ -86,10 +74,10 @@ public class SbTextParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // color_reset_marker?
+  // reset_marker?
   private static boolean colorful_text_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "colorful_text_2")) return false;
-    color_reset_marker(b, l + 1);
+    reset_marker(b, l + 1);
     return true;
   }
 
@@ -107,6 +95,18 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // RESET_MARKER_TOKEN
+  public static boolean reset_marker(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "reset_marker")) return false;
+    if (!nextTokenIs(b, RESET_MARKER_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, RESET_MARKER_TOKEN);
+    exit_section_(b, m, RESET_MARKER, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // colorful_text | escape | string
   public static boolean rich_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rich_text")) return false;
@@ -120,7 +120,7 @@ public class SbTextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (rich_text | color_reset_marker) *
+  // (rich_text | reset_marker | truncate_marker) *
   static boolean root(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root")) return false;
     while (true) {
@@ -131,12 +131,13 @@ public class SbTextParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // rich_text | color_reset_marker
+  // rich_text | reset_marker | truncate_marker
   private static boolean root_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root_0")) return false;
     boolean r;
     r = rich_text(b, l + 1);
-    if (!r) r = color_reset_marker(b, l + 1);
+    if (!r) r = reset_marker(b, l + 1);
+    if (!r) r = truncate_marker(b, l + 1);
     return r;
   }
 
@@ -149,6 +150,18 @@ public class SbTextParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, TEXT_TOKEN);
     exit_section_(b, m, STRING, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // TRUNCATE_MARKER_TOKEN
+  public static boolean truncate_marker(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "truncate_marker")) return false;
+    if (!nextTokenIs(b, TRUNCATE_MARKER_TOKEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, TRUNCATE_MARKER_TOKEN);
+    exit_section_(b, m, TRUNCATE_MARKER, r);
     return r;
   }
 

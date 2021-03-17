@@ -11,7 +11,7 @@ import com.windea.plugin.idea.sbtext.psi.*
 class UnnecessaryMarkerInspection: LocalInspectionTool() {
 	companion object{
 		private fun _description1(name:String) = message("sbText.inspection.unnecessaryColorMarker",name)
-		private val _description2 = message("sbText.inspection.unnecessaryColorResetMarker")
+		private val _description2 = message("sbText.inspection.unnecessaryResetMarker")
 	}
 	
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
@@ -24,7 +24,7 @@ class UnnecessaryMarkerInspection: LocalInspectionTool() {
 				element is SbTextColorMarker && element.nextSibling !is SbTextString -> {
 					holder.registerProblem(element, _description1(element.text),RemoveMarker(element))
 				}
-				element is SbTextColorResetMarker && (element.prevSibling !is SbTextString || element.parent !is SbTextColorfulText)-> {
+				element is SbTextResetMarker && (element.prevSibling !is SbTextString || element.parent !is SbTextColorfulText)-> {
 					holder.registerProblem(element, _description2,RemoveMarker(element))
 				}
 			}

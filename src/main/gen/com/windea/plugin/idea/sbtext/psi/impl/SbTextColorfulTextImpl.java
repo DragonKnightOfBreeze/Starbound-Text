@@ -35,8 +35,8 @@ public class SbTextColorfulTextImpl extends SbTextNamedElementImpl implements Sb
 
   @Override
   @Nullable
-  public SbTextColorResetMarker getColorResetMarker() {
-    return findChildByClass(SbTextColorResetMarker.class);
+  public SbTextResetMarker getResetMarker() {
+    return findChildByClass(SbTextResetMarker.class);
   }
 
   @Override

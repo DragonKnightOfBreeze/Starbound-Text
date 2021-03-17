@@ -11,14 +11,14 @@ import static com.windea.plugin.idea.sbtext.psi.SbTextTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.sbtext.psi.*;
 
-public class SbTextColorResetMarkerImpl extends ASTWrapperPsiElement implements SbTextColorResetMarker {
+public class SbTextTruncateMarkerImpl extends ASTWrapperPsiElement implements SbTextTruncateMarker {
 
-  public SbTextColorResetMarkerImpl(@NotNull ASTNode node) {
+  public SbTextTruncateMarkerImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull SbTextVisitor visitor) {
-    visitor.visitColorResetMarker(this);
+    visitor.visitTruncateMarker(this);
   }
 
   @Override

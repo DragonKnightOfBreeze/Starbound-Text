@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.windea"
-version = "1.8"
+version = "1.9"
 
 intellij {
 	version = "2020.3.2"

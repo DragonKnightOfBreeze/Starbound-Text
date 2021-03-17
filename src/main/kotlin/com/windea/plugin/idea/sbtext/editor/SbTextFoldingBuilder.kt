@@ -5,7 +5,6 @@ import com.intellij.lang.folding.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
-import com.intellij.psi.util.*
 import com.windea.plugin.idea.sbtext.psi.*
 
 //折叠颜色标记
@@ -24,7 +23,8 @@ class SbTextFoldingBuilder : FoldingBuilder, DumbAware {
 				when(element){
 					is SbTextColorfulText -> super.visitElement(element)
 					is SbTextColorMarker -> result += FoldingDescriptor(element.node,element.textRange,foldingGroup)
-					is SbTextColorResetMarker -> result += FoldingDescriptor(element.node,element.textRange,foldingGroup)
+					is SbTextResetMarker -> result += FoldingDescriptor(element.node,element.textRange,foldingGroup)
+					is SbTextTruncateMarker -> result += FoldingDescriptor(element.node,element.textRange,foldingGroup)
 				}
 			}
 		})

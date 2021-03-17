@@ -1,5 +1,3 @@
-@file:Suppress("HasPlatformType")
-
 package com.windea.plugin.idea.sbtext.codeInsight
 
 import com.intellij.codeInsight.completion.*
@@ -10,6 +8,7 @@ import com.intellij.patterns.PlatformPatterns.*
 import com.intellij.util.*
 import com.windea.plugin.idea.sbtext.editor.*
 
+@Suppress("HasPlatformType")
 class SbTextCompletionContributor : CompletionContributor() {
 	companion object{
 		private val insertHandler = InsertHandler<LookupElement> { context, _ ->
@@ -23,6 +22,7 @@ class SbTextCompletionContributor : CompletionContributor() {
 			for(color in StarboundColor.values) {
 				add(LookupElementBuilder.create(color.key).withIcon(color.icon).withInsertHandler(insertHandler))
 				add(LookupElementBuilder.create("reset").withBoldness(true).withInsertHandler(insertHandler))
+				add(LookupElementBuilder.create("truncate").withBoldness(true).withInsertHandler(insertHandler))
 			}
 		}
 	}

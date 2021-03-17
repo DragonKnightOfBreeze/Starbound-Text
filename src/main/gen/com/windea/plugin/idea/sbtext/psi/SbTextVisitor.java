@@ -11,10 +11,6 @@ public class SbTextVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitColorResetMarker(@NotNull SbTextColorResetMarker o) {
-    visitPsiElement(o);
-  }
-
   public void visitColorfulText(@NotNull SbTextColorfulText o) {
     visitRichText(o);
     // visitNamedElement(o);
@@ -24,12 +20,20 @@ public class SbTextVisitor extends PsiElementVisitor {
     visitRichText(o);
   }
 
+  public void visitResetMarker(@NotNull SbTextResetMarker o) {
+    visitPsiElement(o);
+  }
+
   public void visitRichText(@NotNull SbTextRichText o) {
     visitPsiElement(o);
   }
 
   public void visitString(@NotNull SbTextString o) {
     visitRichText(o);
+  }
+
+  public void visitTruncateMarker(@NotNull SbTextTruncateMarker o) {
+    visitPsiElement(o);
   }
 
   public void visitPsiElement(@NotNull PsiElement o) {

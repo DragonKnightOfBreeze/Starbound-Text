@@ -12,7 +12,7 @@ public interface SbTextColorfulText extends SbTextRichText, SbTextNamedElement {
   SbTextColorMarker getColorMarker();
 
   @Nullable
-  SbTextColorResetMarker getColorResetMarker();
+  SbTextResetMarker getResetMarker();
 
   @Nullable
   SbTextString getString();
