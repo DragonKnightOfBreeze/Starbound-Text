@@ -1,6 +1,7 @@
 package com.windea.plugin.idea.sbtext.psi.impl
 
 import com.intellij.psi.*
+import com.intellij.psi.util.*
 import com.intellij.refactoring.suggested.*
 import com.windea.plugin.idea.sbtext.*
 import com.windea.plugin.idea.sbtext.editor.*
@@ -16,7 +17,13 @@ object SbTextPsiImplUtil {
 
 	@JvmStatic
 	fun setName(element:SbTextColorfulText,name:String):PsiElement{
-		return element
+		try {
+			val newColorMarker = SbTextElementFactory.createDummyFile(element.project,"^$name;")
+				.findDescendantOfType<SbTextColorMarker>()?:return element
+			return element.colorMarker.replace(newColorMarker)
+		}catch(e:Exception){
+			return element
+		}
 	}
 
 	@JvmStatic
@@ -46,6 +53,11 @@ object SbTextPsiImplUtil {
 	}
 	
 	@JvmStatic
+	fun setColor(element:SbTextColorfulText,color:Color){
+		element.setName(color.toRgbString())
+	}
+	
+	@JvmStatic
 	fun getColor(element:SbTextColorMarker): Color? {
 		try {
 			val colorCode = element.colorCode?.text
@@ -59,11 +71,6 @@ object SbTextPsiImplUtil {
 		} catch(e: Exception) {
 			return null
 		}
-	}
-	
-	@JvmStatic
-	fun setColor(element:SbTextColorMarker,color:Color){
-		//什么都不做
 	}
 }
 

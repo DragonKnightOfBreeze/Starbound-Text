@@ -34,7 +34,7 @@ colorful_text ::=  color_marker string? reset_marker? {
 }
 color_marker ::= COLOR_MARKER_START COLOR_CODE COLOR_MARKER_END {
   pin=1
-  methods=[getColor setColor]
+  methods=[getColor]
 }
 reset_marker ::= RESET_MARKER_TOKEN
 truncate_marker ::= TRUNCATE_MARKER_TOKEN

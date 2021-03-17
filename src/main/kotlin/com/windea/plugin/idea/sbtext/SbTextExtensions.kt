@@ -17,6 +17,15 @@ fun String.toColorOrNull(): Color? {
 	return Color(rgb)
 }
 
+fun Color.toRgbString():String{
+	return buildString{
+		append("#")
+		append(red.toString(16).padStart(2,'0'))
+		append(green.toString(16).padStart(2,'0'))
+		append(blue.toString(16).padStart(2,'0'))
+	}
+} 
+
 fun message(@PropertyKey(resourceBundle = sbTextBundleName) key: String, vararg params: Any): String {
 	return SbTextBundle.message(key,*params)
 }

@@ -14,6 +14,4 @@ public interface SbTextColorMarker extends PsiElement {
   @Nullable
   Color getColor();
 
-  void setColor(@NotNull Color color);
-
 }

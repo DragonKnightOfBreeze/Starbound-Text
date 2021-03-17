@@ -40,9 +40,4 @@ public class SbTextColorMarkerImpl extends ASTWrapperPsiElement implements SbTex
     return SbTextPsiImplUtil.getColor(this);
   }
 
-  @Override
-  public void setColor(@NotNull Color color) {
-    SbTextPsiImplUtil.setColor(this, color);
-  }
-
 }
