@@ -74,9 +74,4 @@ public class SbTextColorfulTextImpl extends SbTextNamedElementImpl implements Sb
     return SbTextPsiImplUtil.getColor(this);
   }
 
-  @Override
-  public void setColor(@NotNull Color color) {
-    SbTextPsiImplUtil.setColor(this, color);
-  }
-
 }

@@ -59,9 +59,9 @@ public class SbTextLexer implements FlexLexer {
 
   /* The ZZ_CMAP_A table has 320 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\12\0\4\11\24\0\1\7\1\3\3\0\1\7\10\0\12\4\1\0\1\16\5\0\6\5\24\2\1\0\1\6\1"+
-    "\0\1\1\2\0\1\21\1\5\1\20\1\5\1\13\1\5\7\2\1\10\3\2\1\12\1\14\1\15\1\17\5\2"+
-    "\12\0\1\11\242\0\2\11\26\0");
+    "\12\0\4\7\24\0\1\5\1\2\3\0\1\5\10\0\12\3\1\0\1\14\5\0\32\3\1\0\1\4\1\0\1\1"+
+    "\2\0\1\17\1\3\1\16\1\3\1\11\10\3\1\6\3\3\1\10\1\12\1\13\1\15\5\3\12\0\1\7"+
+    "\242\0\2\7\26\0");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -69,12 +69,11 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\4\0\2\1\2\2\1\3\1\4\1\2\1\5\1\6"+
-    "\1\7\1\10\10\0\1\4\6\0\1\11\1\0\1\4"+
-    "\2\0\1\12";
+    "\4\0\2\1\2\2\1\3\1\2\1\4\1\5\1\0"+
+    "\1\6\1\7\1\10\12\0\1\11\3\0\1\12";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[36];
+    int [] result = new int[31];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -99,14 +98,13 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\22\0\44\0\66\0\110\0\132\0\154\0\176"+
-    "\0\220\0\242\0\264\0\176\0\176\0\176\0\176\0\306"+
-    "\0\330\0\352\0\374\0\u010e\0\u0120\0\u0132\0\u0144\0\u0156"+
-    "\0\u0168\0\u017a\0\u018c\0\u019e\0\u01b0\0\u01c2\0\176\0\u01d4"+
-    "\0\176\0\u01e6\0\u01f8\0\176";
+    "\0\0\0\20\0\40\0\60\0\100\0\120\0\140\0\160"+
+    "\0\200\0\220\0\220\0\160\0\240\0\160\0\160\0\160"+
+    "\0\260\0\300\0\320\0\340\0\360\0\u0100\0\u0110\0\u0120"+
+    "\0\u0130\0\u0140\0\160\0\u0150\0\u0160\0\u0170\0\160";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[36];
+    int [] result = new int[31];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -129,24 +127,20 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\5\1\6\4\5\1\7\13\5\1\10\1\11\22\10"+
-    "\1\12\1\13\1\10\1\12\2\10\1\12\1\10\4\12"+
-    "\1\10\3\12\16\10\1\14\3\10\1\5\1\0\4\5"+
-    "\1\0\13\5\2\0\4\15\2\0\1\15\1\0\4\15"+
-    "\1\0\3\15\6\16\3\17\1\0\1\17\2\16\1\17"+
-    "\4\16\34\0\1\20\2\0\1\21\6\0\1\12\2\0"+
-    "\1\12\2\0\1\12\1\0\4\12\1\0\3\12\4\0"+
-    "\2\22\5\0\1\22\4\0\2\22\13\0\1\23\20\0"+
-    "\1\24\13\0\2\25\5\0\1\25\4\0\2\25\14\0"+
-    "\1\26\24\0\1\27\6\0\2\30\5\0\1\30\4\0"+
-    "\2\30\13\0\1\31\16\0\1\32\15\0\2\33\5\0"+
-    "\1\33\4\0\2\33\15\0\1\34\24\0\1\35\5\0"+
-    "\2\36\5\0\1\36\4\0\2\36\16\0\1\37\24\0"+
-    "\1\40\4\0\2\41\5\0\1\41\4\0\2\41\15\0"+
-    "\1\42\17\0\1\43\24\0\1\44\3\0";
+    "\1\5\1\6\2\5\1\7\13\5\1\10\1\11\20\10"+
+    "\1\12\1\13\2\10\1\13\1\10\4\13\1\10\3\13"+
+    "\14\10\1\14\3\10\1\5\1\0\2\5\1\0\13\5"+
+    "\2\0\1\15\1\16\2\0\1\16\1\0\4\16\1\0"+
+    "\3\16\4\17\3\20\1\0\1\20\2\17\1\20\4\17"+
+    "\30\0\1\21\2\0\1\22\7\0\1\13\2\0\1\13"+
+    "\1\0\4\13\1\0\3\13\3\0\1\16\2\0\1\16"+
+    "\1\0\4\16\1\0\3\16\11\0\1\23\16\0\1\24"+
+    "\21\0\1\25\22\0\1\26\13\0\1\27\14\0\1\30"+
+    "\24\0\1\31\22\0\1\32\15\0\1\33\22\0\1\34"+
+    "\13\0\1\35\15\0\1\36\22\0\1\37\3\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[522];
+    int [] result = new int[384];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -184,11 +178,11 @@ public class SbTextLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\4\0\3\1\1\11\3\1\4\11\10\0\1\1\6\0"+
-    "\1\11\1\0\1\11\2\0\1\11";
+    "\4\0\3\1\1\11\3\1\1\11\1\0\3\11\12\0"+
+    "\1\11\3\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[36];
+    int [] result = new int[31];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;

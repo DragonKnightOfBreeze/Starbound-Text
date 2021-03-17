@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.windea.plugin.idea.sbtext.psi.SbTextTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.windea.plugin.idea.sbtext.psi.*;
+import java.awt.Color;
 
 public class SbTextColorMarkerImpl extends ASTWrapperPsiElement implements SbTextColorMarker {
 
@@ -31,6 +32,17 @@ public class SbTextColorMarkerImpl extends ASTWrapperPsiElement implements SbTex
   @Nullable
   public PsiElement getColorCode() {
     return findChildByType(COLOR_CODE);
+  }
+
+  @Override
+  @Nullable
+  public Color getColor() {
+    return SbTextPsiImplUtil.getColor(this);
+  }
+
+  @Override
+  public void setColor(@NotNull Color color) {
+    SbTextPsiImplUtil.setColor(this, color);
   }
 
 }

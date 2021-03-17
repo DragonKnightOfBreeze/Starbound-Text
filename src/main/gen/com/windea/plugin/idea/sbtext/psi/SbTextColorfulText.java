@@ -31,6 +31,8 @@ public interface SbTextColorfulText extends SbTextRichText, SbTextNamedElement {
   @Nullable
   Color getColor();
 
-  void setColor(@NotNull Color color);
+  //WARNING: setColor(...) is skipped
+  //matching setColor(SbTextColorfulText, ...)
+  //methods are not found in SbTextPsiImplUtil
 
 }

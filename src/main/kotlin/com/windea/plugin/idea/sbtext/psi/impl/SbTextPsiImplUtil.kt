@@ -46,7 +46,23 @@ object SbTextPsiImplUtil {
 	}
 	
 	@JvmStatic
-	fun setColor(element:SbTextColorfulText,color:Color){
+	fun getColor(element:SbTextColorMarker): Color? {
+		try {
+			val colorCode = element.colorCode?.text
+			return when{
+				colorCode == null ->  null
+				colorCode.startsWith("#") -> colorCache.getOrPut(colorCode){
+					colorCode.toColorOrNull()
+				}
+				else -> StarboundColor.map[colorCode]?.color
+			}
+		} catch(e: Exception) {
+			return null
+		}
+	}
+	
+	@JvmStatic
+	fun setColor(element:SbTextColorMarker,color:Color){
 		//什么都不做
 	}
 }

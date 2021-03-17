@@ -9,7 +9,7 @@ class SbTextDescriptionProvider : ElementDescriptionProvider {
 	override fun getElementDescription(element: PsiElement, location: ElementDescriptionLocation): String? {
 		return when(element){
 			is SbTextColorfulText -> {
-				if(location == UsageViewTypeLocation.INSTANCE) message("sbtext.description.colorfulText")
+				if(location == UsageViewTypeLocation.INSTANCE) message("sbText.description.colorfulText")
 				else element.name
 			}
 			else -> null

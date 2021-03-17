@@ -12,7 +12,7 @@
   
   tokens=[
     COLOR_MARKER_START='^'
-    COLOR_CODE='regexp:(#[0-9a-fA-F]{3})|(#[0-9a-fA-F]{6})|([a-zA-Z]+)'
+    COLOR_CODE='regexp:#?[0-9a-zA-Z]+'
     COLOR_MARKER_END=';'
     RESET_MARKER_TOKEN='^reset;'
     TRUNCATE_MARKER_TOKEN='^truncate;'
@@ -34,6 +34,7 @@ colorful_text ::=  color_marker string? reset_marker? {
 }
 color_marker ::= COLOR_MARKER_START COLOR_CODE COLOR_MARKER_END {
   pin=1
+  methods=[getColor setColor]
 }
 reset_marker ::= RESET_MARKER_TOKEN
 truncate_marker ::= TRUNCATE_MARKER_TOKEN
