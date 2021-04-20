@@ -11,6 +11,8 @@ const val sbTextFileTypeDescription = "Starbound rich text"
 const val sbTextExtension = "sbtxt"
 const val sbTextBundleName = "messages.SbTextBundle"
 
+const val foldingPlaceholder = ""
+
 val sbTextDummyText = """
 	This is some ^red;red^reset; text.
 	And this is some ^#f8f8f8;custom color^reset; text.

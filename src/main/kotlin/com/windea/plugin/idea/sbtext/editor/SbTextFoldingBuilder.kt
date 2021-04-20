@@ -5,6 +5,7 @@ import com.intellij.lang.folding.*
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
+import com.windea.plugin.idea.sbtext.*
 import com.windea.plugin.idea.sbtext.psi.*
 
 //折叠颜色标记
@@ -32,7 +33,7 @@ class SbTextFoldingBuilder : FoldingBuilder, DumbAware {
 	}
 
 	override fun getPlaceholderText(node: ASTNode): String {
-		return "<>"
+		return foldingPlaceholder
 	}
 
 	override fun isCollapsedByDefault(node: ASTNode): Boolean {
