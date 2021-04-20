@@ -2,15 +2,15 @@ plugins {
 	java
 	kotlin("jvm") version "1.4.30"
 	id("org.jetbrains.intellij") version "0.7.2"
-	id("org.jetbrains.grammarkit") version "2020.3.2"
+	id("org.jetbrains.grammarkit") version "2021.1.1"
 }
 
 group = "com.windea"
-version = "1.9"
+version = "2.0"
 
 intellij {
-	version = "2020.3.2"
-	pluginName = "Paradox Language Support"
+	version = d"2021.1.1"
+	pluginName = "Starbound Text"
 }
 
 buildscript {
