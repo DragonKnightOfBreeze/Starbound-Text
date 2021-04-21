@@ -15,19 +15,24 @@ class SbTextAnnotator : Annotator, DumbAware {
 	}
 	
 	override fun annotate(element: PsiElement, holder: AnnotationHolder) {
-		when(element) {
-			is SbTextColorMarker -> {
-				val colorId = element.colorCode?.text ?: return
+		when(element){
+			is SbTextColorfulText -> {
+				val colorMarker = element.colorMarker
+				val colorId = colorMarker.colorCode?.text?:return
 				//判断colorId是否合法，又是否支持，如果合法且支持，则高亮彩色文本
 				if(!colorId.matches(colorIdRegex)) {
-					holder.newAnnotation(ERROR, message("sbText.annotator.invalidColorId", colorId)).create()
+					holder.newAnnotation(ERROR, message("sbText.annotator.invalidColorId", colorId))
+						.range(colorMarker)
+						.create()
 				}else{
 					val color = element.color
 					if(color == null) {
-						holder.newAnnotation(ERROR, message("sbText.annotator.unsupportedColorId", colorId)).create()
+						holder.newAnnotation(ERROR, message("sbText.annotator.unsupportedColorId", colorId))
+							.range(colorMarker)
+							.create()
 					} else {
 						//高亮彩色文本
-						val string = element.nextSibling as? SbTextString ?:return
+						val string = element.string ?:return
 						val attributesKey = COLORFUL_TEXT_KEYS.getOrPut(colorId){
 							createColorfulTextKey(colorId,color)
 						}
@@ -36,6 +41,27 @@ class SbTextAnnotator : Annotator, DumbAware {
 				}
 			}
 		}
+		//when(element) {
+		//	is SbTextColorMarker -> {
+		//		val colorId = element.colorCode?.text ?: return
+		//		//判断colorId是否合法，又是否支持，如果合法且支持，则高亮彩色文本
+		//		if(!colorId.matches(colorIdRegex)) {
+		//			holder.newAnnotation(ERROR, message("sbText.annotator.invalidColorId", colorId)).create()
+		//		}else{
+		//			val color = element.color
+		//			if(color == null) {
+		//				holder.newAnnotation(ERROR, message("sbText.annotator.unsupportedColorId", colorId)).create()
+		//			} else {
+		//				//高亮彩色文本
+		//				val string = element.nextSibling as? SbTextString ?:return
+		//				val attributesKey = COLORFUL_TEXT_KEYS.getOrPut(colorId){
+		//					createColorfulTextKey(colorId,color)
+		//				}
+		//				holder.newSilentAnnotation(INFORMATION).range(string).textAttributes(attributesKey).create()
+		//			}
+		//		}
+		//	}
+		//}
 	}
 }
 
