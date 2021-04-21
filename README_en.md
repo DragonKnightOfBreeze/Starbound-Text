@@ -18,7 +18,7 @@ Main Feature:
 
 1. Syntax analysis.
 2. Code completion and code folding for color markers.
-3. Code hignlight by related color for colorful text.
+3. Code highlight by related color for colorful text.
 4. Dynamic template for quickly inserting colored text. Enter`color` in the correct position to see it.
 
 Note: 

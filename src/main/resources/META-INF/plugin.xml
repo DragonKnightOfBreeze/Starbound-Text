@@ -22,7 +22,7 @@
     <ol>
       <li>Syntax analysis.</li>
       <li>Code completion and code folding for color markers.</li>
-      <li>Code hignlight by related color for colorful text.</li>
+      <li>Code highlight by related color for colorful text.</li>
       <li>Dynamic template for quickly inserting colored text. Enter<code>color</code> in the correct position to see it.</li>
     </ol>
     <p>
@@ -48,7 +48,7 @@
     <p>主要功能：</p>
     <ol>
       <li>语法解析。</li>
-      <li>提示颜色标记的代码补全和代码折叠。</li>
+      <li>颜色标记的代码补全和代码折叠。</li>
       <li>使用对应的颜色高亮彩色文本。</li>
       <li>提供快速插入彩色文本的动态模版，在正确的位置输入<code>color</code>即可看到。</li>
     </ol>
@@ -75,7 +75,7 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <fileType name="Starbound Text File" implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType" fieldName="INSTANCE" language="Starbound Text"/>
+    <fileType name="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType" fieldName="INSTANCE" language="Starbound Text"/>
     <lang.parserDefinition language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.psi.SbTextParserDefinition"/>
     <lang.syntaxHighlighterFactory language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.highlighter.SbTextSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="com.windea.plugin.idea.sbtext.highlighter.SbTextColorSettingsPage"/>
