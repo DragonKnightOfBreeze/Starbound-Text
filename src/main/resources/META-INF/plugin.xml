@@ -84,25 +84,25 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <fileType name="Starbound Text" implementationClass="icu.windea.starboundText.SbTextFileType" fieldName="INSTANCE" language="Starbound Text"/>
-    <lang.parserDefinition language="Starbound Text" implementationClass="icu.windea.starboundText.psi.SbTextParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="Starbound Text" implementationClass="icu.windea.starboundText.highlighter.SbTextSyntaxHighlighterFactory"/>
-    <colorSettingsPage implementation="icu.windea.starboundText.highlighter.SbTextColorSettingsPage"/>
-    <spellchecker.support language="Starbound Text" implementationClass="icu.windea.starboundText.SbTextSpellchecker"/>
-    <elementDescriptionProvider implementation="icu.windea.starboundText.editor.SbTextDescriptionProvider"/>
-    <completion.contributor language="Starbound Text" implementationClass="icu.windea.starboundText.codeInsight.SbTextCompletionContributor"/>
-    <lang.foldingBuilder language="Starbound Text" implementationClass="icu.windea.starboundText.editor.SbTextFoldingBuilder"/>
-    <liveTemplateContext implementation="icu.windea.starboundText.editor.SbTextTemplateContext"/>
+    <fileType name="Starbound Text" implementationClass="icu.windea.starboundText.StarboundTextFileType" fieldName="INSTANCE" language="Starbound Text"/>
+    <lang.parserDefinition language="Starbound Text" implementationClass="icu.windea.starboundText.psi.StarboundTextParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Starbound Text" implementationClass="icu.windea.starboundText.highlighter.StarboundTextSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="icu.windea.starboundText.highlighter.StarboundTextColorSettingsPage"/>
+    <spellchecker.support language="Starbound Text" implementationClass="icu.windea.starboundText.StarboundTextSpellchecker"/>
+    <elementDescriptionProvider implementation="icu.windea.starboundText.editor.StarboundTextDescriptionProvider"/>
+    <completion.contributor language="Starbound Text" implementationClass="icu.windea.starboundText.codeInsight.StarboundTextCompletionContributor"/>
+    <lang.foldingBuilder language="Starbound Text" implementationClass="icu.windea.starboundText.editor.StarboundTextFoldingBuilder"/>
+    <liveTemplateContext implementation="icu.windea.starboundText.editor.StarboundTextTemplateContext"/>
     <defaultLiveTemplates file="/liveTemplates/StarboundText.xml"/>
-    <annotator language="Starbound Text" implementationClass="icu.windea.starboundText.editor.SbTextAnnotator"/>
+    <annotator language="Starbound Text" implementationClass="icu.windea.starboundText.editor.StarboundTextAnnotator"/>
     <!--不启用：可能一行中显示了太多的颜色图标-->
-    <!--<colorProvider implementation="icu.windea.starboundText.editor.SbTextColorProvider"/>-->
+    <!--<colorProvider implementation="icu.windea.starboundText.editor.StarboundTextColorProviderrovider"/>-->
 
     <localInspection
         language="Starbound Text"
-        shortName="UnnecessaryMarker" bundle="messages.SbTextBundle"
-        groupKey="sbText.inspection"
-        key="sbText.inspection.unnecessaryMarker"
+        shortName="UnnecessaryMarker" bundle="messages.StarboundTextBundle"
+        groupKey="starboundText.inspection"
+        key="starboundText.inspection.unnecessaryMarker"
         enabledByDefault="true" level="WARNING"
         implementationClass="icu.windea.starboundText.inspections.UnnecessaryMarkerInspection"/>
   </extensions>

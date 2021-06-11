@@ -6,26 +6,25 @@ import com.intellij.openapi.editor.*
 import com.intellij.openapi.project.*
 import com.intellij.psi.*
 import icu.windea.starboundText.*
-import icu.windea.starboundText.*
 import icu.windea.starboundText.psi.*
 
 class UnnecessaryMarkerInspection: LocalInspectionTool() {
 	companion object{
-		private fun _description1(name:String) = message("sbText.inspection.unnecessaryColorMarker",name)
-		private val _description2 = message("sbText.inspection.unnecessaryResetMarker")
+		private fun _description1(name:String) = message("starboundText.inspection.unnecessaryColorMarker",name)
+		private val _description2 = message("starboundText.inspection.unnecessaryResetMarker")
 	}
 	
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
 		return Visitor(holder)
 	}
 	
-	private class Visitor(private val holder:ProblemsHolder):SbTextVisitor(){
+	private class Visitor(private val holder:ProblemsHolder): StarboundTextVisitor(){
 		override fun visitElement(element: PsiElement) {
 			when{
-				element is SbTextColorMarker && element.nextSibling !is SbTextString -> {
+				element is StarboundTextColorMarker && element.nextSibling !is StarboundTextString -> {
 					holder.registerProblem(element, _description1(element.text),RemoveMarker(element))
 				}
-				element is SbTextResetMarker && (element.prevSibling !is SbTextString || element.parent !is SbTextColorfulText)-> {
+				element is StarboundTextResetMarker && (element.prevSibling !is StarboundTextString || element.parent !is StarboundTextColorfulText)-> {
 					holder.registerProblem(element, _description2,RemoveMarker(element))
 				}
 			}
@@ -34,7 +33,7 @@ class UnnecessaryMarkerInspection: LocalInspectionTool() {
 	
 	private class RemoveMarker(element:PsiElement):LocalQuickFixAndIntentionActionOnPsiElement(element){
 		companion object{
-			private val _name = message("sbText.quickFix.removeUnnecessaryMarker")
+			private val _name = message("starboundText.quickFix.removeUnnecessaryMarker")
 		}
 		
 		override fun getFamilyName() = _name

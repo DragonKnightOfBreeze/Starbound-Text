@@ -1,0 +1,46 @@
+{
+  parserClass="icu.windea.starboundText.psi.StarboundTextParser"
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+  psiClassPrefix="StarboundText"
+  psiImplClassSuffix="Impl"
+  psiPackage="icu.windea.starboundText.psi"
+  psiImplPackage="icu.windea.starboundText.psi.impl"
+  elementTypeHolderClass="icu.windea.starboundText.psi.StarboundTextTypes"
+  tokenTypeClass="icu.windea.starboundText.psi.StarboundTextTokenType"
+  elementTypeClass="icu.windea.starboundText.psi.StarboundTextElementType"
+  psiImplUtilClass="icu.windea.starboundText.psi.impl.StarboundTextPsiImplUtil"
+  
+  tokens=[
+    COLOR_MARKER_START='^'
+    COLOR_CODE='regexp:#?[0-9a-zA-Z]+'
+    COLOR_MARKER_END=';'
+    RESET_MARKER_TOKEN='^reset;'
+    TRUNCATE_MARKER_TOKEN='^truncate;'
+    
+    VALID_ESCAPE_TOKEN="regexp:\\['\"rnt\\]"
+    INVALID_ESCAPE_TOKEN='regexp:\\.'
+    TEXT_TOKEN='regexp:[^\\]+'
+  ]
+}
+
+root ::= (rich_text | reset_marker | truncate_marker) *
+rich_text ::=  colorful_text | escape | string 
+colorful_text ::=  color_marker string? reset_marker? {
+  pin=1
+  extends=rich_text
+  mixin="icu.windea.starboundText.psi.impl.StarboundTextNamedElementImpl"
+  implements="icu.windea.starboundText.psi.StarboundTextNamedElement"
+  methods=[getName setName getNameIdentifier getTextOffset getColor setColor]
+}
+color_marker ::= COLOR_MARKER_START COLOR_CODE COLOR_MARKER_END {
+  pin=1
+  methods=[getColor]
+}
+reset_marker ::= RESET_MARKER_TOKEN
+truncate_marker ::= TRUNCATE_MARKER_TOKEN
+escape ::= VALID_ESCAPE_TOKEN | INVALID_ESCAPE_TOKEN{
+  extends=rich_text
+}
+string ::= TEXT_TOKEN{
+  extends=rich_text
+}
