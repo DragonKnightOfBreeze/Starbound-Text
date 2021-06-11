@@ -2,6 +2,8 @@
 
 package icu.windea.starboundText.psi;
 
+import com.intellij.lexer.FlexLexer;
+import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.*;
