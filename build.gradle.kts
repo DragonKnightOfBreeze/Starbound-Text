@@ -6,19 +6,11 @@ plugins {
 }
 
 group = "com.windea"
-version = "2.0.1"
+version = "3.0.0"
 
 intellij {
 	version = "2021.1"
 	pluginName = "Starbound Text"
-}
-
-buildscript{
-	repositories {
-		maven("https://maven.aliyun.com/nexus/content/groups/public")
-		mavenCentral()
-		maven("https://plugins.gradle.org/m2")
-	}
 }
 
 repositories {
@@ -41,12 +33,18 @@ sourceSets {
 
 tasks {
 	compileKotlin {
-		kotlinOptions.jvmTarget = "1.8"
+		kotlinOptions{
+			jvmTarget = "11"
+			freeCompilerArgs = listOf("-Xjvm-default=all")
+		}
 	}
 	compileTestKotlin {
-		kotlinOptions.jvmTarget = "1.8"
+		kotlinOptions{
+			jvmTarget = "11"
+			freeCompilerArgs = listOf("-Xjvm-default=all")
+		}
 	}
 	publishPlugin{
-		setToken(System.getenv("IDEA_TOKEN"))
+		token(System.getenv("IDEA_TOKEN"))
 	}
 }

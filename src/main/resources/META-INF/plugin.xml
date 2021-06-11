@@ -1,11 +1,21 @@
 <idea-plugin>
-  <id>com.windea.sbtext</id>
-  <name>StarBound Text</name>
+  <id>icu.windea.starboundText</id>
+  <name>Starbound Text</name>
   <category>Languages</category>
 
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
 
   <description><![CDATA[
+    <p>
+      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/README.md">中文文档</a> |
+      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/README_en.md">English Documentation</a>
+    </p>
+    <p>
+      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text">Github</a>
+    </p>
+
+    <br>
+    
     <p>Starbound Text support.</p>
     <p>
       This plugin is developed to help maintaining and updating
@@ -61,33 +71,32 @@
 
   <change-notes><![CDATA[
     <p>
-      Please see the
-      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/CHANGELOG.md">CHANGELOG</a> written by Simple Chinese.
+      Please see <a href="https://github.com/DragonKnightOfBreeze/Paradox-Language-Support/blob/master/CHANGELOG.md">CHANGELOG</a> written by Simple Chinese.
     </p>
 
     <br>
 
     <p>
-      请查看<a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/CHANGELOG.md">CHANGELOG</a>。
+      请查看<a href="https://github.com/DragonKnightOfBreeze/Paradox-Language-Support/blob/master/CHANGELOG.md">CHANGELOG</a>。
     </p>
     ]]></change-notes>
 
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <fileType name="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.SbTextFileType" fieldName="INSTANCE" language="Starbound Text"/>
-    <lang.parserDefinition language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.psi.SbTextParserDefinition"/>
-    <lang.syntaxHighlighterFactory language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.highlighter.SbTextSyntaxHighlighterFactory"/>
-    <colorSettingsPage implementation="com.windea.plugin.idea.sbtext.highlighter.SbTextColorSettingsPage"/>
-    <spellchecker.support language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.SbTextSpellchecker"/>
-    <elementDescriptionProvider implementation="com.windea.plugin.idea.sbtext.editor.SbTextDescriptionProvider"/>
-    <completion.contributor language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.codeInsight.SbTextCompletionContributor"/>
-    <lang.foldingBuilder language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.editor.SbTextFoldingBuilder"/>
-    <liveTemplateContext implementation="com.windea.plugin.idea.sbtext.editor.SbTextTemplateContext"/>
+    <fileType name="Starbound Text" implementationClass="icu.windea.starboundText.SbTextFileType" fieldName="INSTANCE" language="Starbound Text"/>
+    <lang.parserDefinition language="Starbound Text" implementationClass="icu.windea.starboundText.psi.SbTextParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="Starbound Text" implementationClass="icu.windea.starboundText.highlighter.SbTextSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="icu.windea.starboundText.highlighter.SbTextColorSettingsPage"/>
+    <spellchecker.support language="Starbound Text" implementationClass="icu.windea.starboundText.SbTextSpellchecker"/>
+    <elementDescriptionProvider implementation="icu.windea.starboundText.editor.SbTextDescriptionProvider"/>
+    <completion.contributor language="Starbound Text" implementationClass="icu.windea.starboundText.codeInsight.SbTextCompletionContributor"/>
+    <lang.foldingBuilder language="Starbound Text" implementationClass="icu.windea.starboundText.editor.SbTextFoldingBuilder"/>
+    <liveTemplateContext implementation="icu.windea.starboundText.editor.SbTextTemplateContext"/>
     <defaultLiveTemplates file="/liveTemplates/StarboundText.xml"/>
-    <annotator language="Starbound Text" implementationClass="com.windea.plugin.idea.sbtext.editor.SbTextAnnotator"/>
+    <annotator language="Starbound Text" implementationClass="icu.windea.starboundText.editor.SbTextAnnotator"/>
     <!--不启用：可能一行中显示了太多的颜色图标-->
-    <!--<colorProvider implementation="com.windea.plugin.idea.sbtext.editor.SbTextColorProvider"/>-->
+    <!--<colorProvider implementation="icu.windea.starboundText.editor.SbTextColorProvider"/>-->
 
     <localInspection
         language="Starbound Text"
@@ -95,6 +104,6 @@
         groupKey="sbText.inspection"
         key="sbText.inspection.unnecessaryMarker"
         enabledByDefault="true" level="WARNING"
-        implementationClass="com.windea.plugin.idea.sbtext.inspections.UnnecessaryMarkerInspection"/>
+        implementationClass="icu.windea.starboundText.inspections.UnnecessaryMarkerInspection"/>
   </extensions>
 </idea-plugin>

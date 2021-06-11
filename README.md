@@ -2,6 +2,8 @@
 
 [中文文档](README.md) | [English Document](README_en.md)
 
+[Github](https://github.com/DragonKnightOfBreeze/Starbound-Text)
+
 Starbound文本支持。
 
 编写这个插件是为了便于维护和更新

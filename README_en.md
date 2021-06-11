@@ -2,6 +2,8 @@
 
 [中文文档](README.md) | [English Document](README_en.md)
 
+[Github](https://github.com/DragonKnightOfBreeze/Starbound-Text)
+
 Starbound Text support.
 
 This plugin is developed to help maintaining and updating
