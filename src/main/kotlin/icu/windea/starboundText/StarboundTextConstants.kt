@@ -11,7 +11,7 @@ val locationClass = StarboundTextBundle::class.java
 
 const val starboundTextName = "Starbound Text"
 const val starboundTextDescription = "Starbound text"
-const val starboundTextId = "StarboundText"
+const val starboundTextId = "STARBOUND_TEXT"
 val starboundTextDemoText = "/demoText/StarboundText.txt".toUrl(locationClass).readText()
 
 //Misc Constants
