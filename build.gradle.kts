@@ -2,14 +2,14 @@ plugins {
 	java
 	kotlin("jvm") version "1.4.30"
 	id("org.jetbrains.intellij") version "0.7.2"
-	id("org.jetbrains.grammarkit") version "2021.1.2"
+	id("org.jetbrains.grammarkit") version "2021.1"
 }
 
 group = "com.windea"
-version = "3.0.1"
+version = "3.1.0"
 
 intellij {
-	version = "2021.1"
+	version = "2021.2"
 	pluginName = "Starbound Text"
 }
 
