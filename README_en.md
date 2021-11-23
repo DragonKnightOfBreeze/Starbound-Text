@@ -4,9 +4,9 @@
 
 [Github](https://github.com/DragonKnightOfBreeze/Starbound-Text)
 
-Starbound Text support.
+Starbound rich text support.
 
-This plugin is developed to help maintaining and updating
+This plugin is developed to support a rich text language used by Starbound for helping maintaining and updating
 [Frackin Universe Simple Chinese Project](https://github.com/ProjectSky/FrackinUniverse-sChinese-Project).
 
 Example:
@@ -26,6 +26,7 @@ Main Feature:
 Note: 
 This plugin does not provide default file extensions to associate `Starbound Text` language, 
 please customize a File Type or use Language Injection.
+The language ID is `STARBOUND_TEXT`.
     
 # Reference
 

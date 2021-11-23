@@ -6,19 +6,9 @@
   <vendor email="dk_breeze@qq.com" url="https://github.com/DragonKnightOfBreeze">DragonKnightOfBreeze</vendor>
 
   <description><![CDATA[
+    <p>Starbound rich text support.</p>
     <p>
-      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/README.md">中文文档</a> |
-      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/README_en.md">English Documentation</a>
-    </p>
-    <p>
-      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text">Github</a>
-    </p>
-    
-    <br>
-    
-    <p>Starbound Text support.</p>
-    <p>
-      This plugin is developed to help maintaining and updating
+      This plugin is developed to support a rich text language used by Starbound for helping maintaining and updating
       <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe Simple Chinese Project</a>.
     </p>
     <p>Example:</p>
@@ -39,13 +29,14 @@
       Note: 
       This plugin does not provide default file extensions to associate <code>Starbound Text</code> language,
       please customize a File Type or use Language Injection.
+      The language ID is <code>STARBOUND_TEXT</code>.
     </p>
 
     <br>
 
-    <p>Starbound文本支持。</p>
+    <p>Starbound富文本支持。</p>
     <p>
-      编写这个插件是为了便于维护和更新
+      这个插件用于支持一种Starbound所使用的富文本语言，编写这个插件是为了便于维护和更新
       <a href="https://github.com/ProjectSky/FrackinUniverse-sChinese-Project">Frackin Universe汉化项目</a>。
     </p>
     <p>示例：</p>
@@ -66,6 +57,17 @@
       注意：
       这个插件不提供默认的文件后缀名以关联<code>Starbound文本</code>语言，
       请自定义文件类型或者使用语言注入功能。
+      语言ID是<code>STARBOUND_TEXT</code>。
+    </p>
+
+    <br>
+
+    <p>
+      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/README.md">中文文档</a> |
+      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text/blob/master/README_en.md">English Documentation</a>
+    </p>
+    <p>
+      <a href="https://github.com/DragonKnightOfBreeze/Starbound-Text">Github</a>
     </p>
     ]]></description>
 
@@ -96,7 +98,7 @@
     <defaultLiveTemplates file="/liveTemplates/StarboundText.xml"/>
     <annotator language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.editor.StarboundTextAnnotator"/>
     <!--不启用：可能一行中显示了太多的颜色图标-->
-    <!--<colorProvider implementation="icu.windea.starboundText.editor.StarboundTextColorProviderrovider"/>-->
+    <!--<colorProvider implementation="icu.windea.starboundText.editor.StarboundTextColorProvider"/>-->
 
     <localInspection
         language="STARBOUND_TEXT"

@@ -1,12 +1,12 @@
 plugins {
 	java
-	kotlin("jvm") version "1.4.30"
+	kotlin("jvm") version "1.6.0"
 	id("org.jetbrains.intellij") version "0.7.2"
 	id("org.jetbrains.grammarkit") version "2021.1"
 }
 
-group = "com.windea"
-version = "3.1.0"
+group = "icu.windea"
+version = "3.1.1"
 
 intellij {
 	version = "2021.2"

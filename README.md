@@ -4,9 +4,9 @@
 
 [Github](https://github.com/DragonKnightOfBreeze/Starbound-Text)
 
-Starbound文本支持。
+Starbound富文本支持。
 
-编写这个插件是为了便于维护和更新
+这个插件用于支持一种Starbound所使用的富文本语言，编写这个插件是为了便于维护和更新
 [Frackin Universe汉化项目](https://github.com/ProjectSky/FrackinUniverse-sChinese-Project)。
 
 示例：
@@ -26,6 +26,7 @@ And this is some ^#f8f8f8;custom color^reset; text.
 注意：
 这个插件不提供默认的文件后缀名以关联`Starbound文本`语言，
 请自定义文件类型或者使用语言注入功能。
+语言ID是`STARBOUND_TEXT`。
 
 # 参考
 
