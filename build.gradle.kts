@@ -20,8 +20,8 @@ repositories {
 }
 
 dependencies{
-	implementation(kotlin("stdlib"))
-	implementation(kotlin("reflect"))
+	implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
+	implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
 }
 
 sourceSets {
