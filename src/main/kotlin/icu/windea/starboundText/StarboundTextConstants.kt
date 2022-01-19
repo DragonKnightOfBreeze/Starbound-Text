@@ -12,7 +12,7 @@ const val starboundTextDescription = "Starbound text"
 const val starboundTextId = "STARBOUND_TEXT"
 val starboundTextDemoText = "/demoText/StarboundText.txt".toUrl(locationClass).readText()
 
-const val foldingPlaceholder = ""
+const val foldingPlaceholder = "</>"
 
 //Icons
 

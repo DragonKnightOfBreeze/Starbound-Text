@@ -1,4 +1,4 @@
-<idea-plugin>
+<idea-plugin url="https://github.com/DragonKnightOfBreeze/Starbound-Text">
   <id>icu.windea.starboundText</id>
   <name>Starbound Text</name>
   <category>Languages</category>
