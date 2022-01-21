@@ -45,8 +45,7 @@ val projectCompiler = javaToolchains.compilerFor {
 
 tasks {
     jar {
-        from("README.md", "README_en.md", "CHANGELOG.md")
-        from("LICENSE")
+        from("README.md", "README_en.md", "LICENSE")
     }
     compileJava {
         javaCompiler.set(projectCompiler)
