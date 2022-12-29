@@ -12,10 +12,4 @@ object StarboundTextBundle: DynamicBundle(BUNDLE) {
     fun message(@NonNls @PropertyKey(resourceBundle = BUNDLE) key: String, vararg params: Any): String {
         return getMessage(key, *params)
     }
-
-    @Nls
-    @JvmStatic
-    fun lazyMessage(@PropertyKey(resourceBundle = BUNDLE) key: String, vararg params: Any): () -> String {
-        return { getMessage(key, *params) }
-    }
 }
