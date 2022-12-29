@@ -29,8 +29,3 @@ And this is some ^#f8f8f8;custom color^reset; text.
 这个插件不提供默认的文件后缀名以关联`Starbound文本`语言，
 请自定义文件类型或者使用语言注入功能。
 语言ID是`STARBOUND_TEXT`。
-
-# 参考
-
-* 更多信息：[plugin.xml](src/main/resources/META-INF/plugin.xml)
-* 更新日志：[CHANGELOG.md](CHANGELOG.md)

@@ -13,16 +13,16 @@
     <fileType name="Starbound Text" implementationClass="icu.windea.starboundText.StarboundTextFileType" fieldName="INSTANCE" language="STARBOUND_TEXT"/>
     <lang.parserDefinition language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.psi.StarboundTextParserDefinition"/>
     <lang.syntaxHighlighterFactory language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.highlighter.StarboundTextSyntaxHighlighterFactory"/>
-    <colorSettingsPage implementation="icu.windea.starboundText.highlighter.StarboundTextColorSettingsPage"/>
-    <spellchecker.support language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.StarboundTextSpellchecker"/>
-    <elementDescriptionProvider implementation="icu.windea.starboundText.editor.StarboundTextDescriptionProvider"/>
-    <completion.contributor language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.codeInsight.StarboundTextCompletionContributor"/>
-    <lang.foldingBuilder language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.editor.StarboundTextFoldingBuilder"/>
-    <liveTemplateContext implementation="icu.windea.starboundText.editor.StarboundTextTemplateContext"/>
-    <defaultLiveTemplates file="/liveTemplates/StarboundText.xml"/>
     <annotator language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.editor.StarboundTextAnnotator"/>
+    <colorSettingsPage implementation="icu.windea.starboundText.editor.StarboundTextColorSettingsPage"/>
+    <elementDescriptionProvider implementation="icu.windea.starboundText.editor.StarboundTextDescriptionProvider"/>
+    <lang.foldingBuilder language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.editor.StarboundTextFoldingBuilder"/>
     <!--不启用：可能一行中显示了太多的颜色图标-->
     <!--<colorProvider implementation="icu.windea.starboundText.editor.StarboundTextColorProvider"/>-->
+    <completion.contributor language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.codeInsight.StarboundTextCompletionContributor"/>
+    <liveTemplateContext contextId="STARBOUND_TEXT" implementation="icu.windea.starboundText.codeInsight.template.StarboundTextTemplateContext"/>
+    <defaultLiveTemplates file="/liveTemplates/StarboundText.xml"/>
+    <spellchecker.support language="STARBOUND_TEXT" implementationClass="icu.windea.starboundText.StarboundTextSpellchecker"/>
 
     <localInspection
         language="STARBOUND_TEXT"

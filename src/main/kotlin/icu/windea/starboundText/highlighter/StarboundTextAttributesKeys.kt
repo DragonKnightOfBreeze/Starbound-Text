@@ -1,31 +1,37 @@
+@file:Suppress("DEPRECATION")
+
 package icu.windea.starboundText.highlighter
 
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors.*
-import com.intellij.openapi.editor.HighlighterColors.*
-import com.intellij.openapi.editor.colors.*
-import com.intellij.openapi.editor.colors.TextAttributesKey.*
-import icu.windea.starboundText.*
-import icu.windea.starboundText.editor.*
-import java.awt.*
+import com.intellij.openapi.editor.HighlighterColors.BAD_CHARACTER
+import com.intellij.openapi.editor.HighlighterColors.TEXT
+import com.intellij.openapi.editor.colors.TextAttributesKey
+import com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey
+import icu.windea.starboundText.StarboundTextBundle
+import icu.windea.starboundText.editor.StarboundColor
+import java.awt.Color
+import java.util.*
 
 object StarboundTextAttributesKeys {
-	@JvmField val MARKER_KEY = createTextAttributesKey(message("starboundText.syntax.marker"), KEYWORD)
-	@JvmField val COLOR_CODE_KEY = createTextAttributesKey(message("starboundText.syntax.colorCode"), KEYWORD)
-	@JvmField val TEXT_KEY = createTextAttributesKey(message("starboundText.syntax.text"),TEXT)
-	@JvmField val VALID_ESCAPE_KEY = createTextAttributesKey(message("starboundText.syntax.validEscape"), VALID_STRING_ESCAPE)
-	@JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey(message("starboundText.syntax.invalidEscape"), INVALID_STRING_ESCAPE)
-	@JvmField val BAD_CHARACTER_KEY = createTextAttributesKey(message("starboundText.syntax.badCharacter"), BAD_CHARACTER)
-	
-	@JvmField val COLORFUL_TEXT_KEYS = StarboundColor.map.mapValuesTo(mutableMapOf()) { (_, value) ->
-		val attributes = TEXT.defaultAttributes.clone().apply{
-			foregroundColor=value.color
-		}
-		createTextAttributesKey("${message("starboundText.syntax.colorfulText")}_${value.key.toUpperCase()}", attributes)
-	}
-	fun createColorfulTextKey(colorId:String,color:Color):TextAttributesKey{
-		val attributes = TEXT.defaultAttributes.clone().apply{
-			foregroundColor=color
-		}
-		return createTextAttributesKey("${message("starboundText.syntax.colorfulText")}_${colorId.toUpperCase()}", attributes)
-	}
+    @JvmField val MARKER_KEY = createTextAttributesKey("STARBOUND_TEXT.MARKER", KEYWORD)
+    @JvmField val COLOR_CODE_KEY = createTextAttributesKey("STARBOUND_TEXT.COLOR_CODE", KEYWORD)
+    @JvmField val TEXT_KEY = createTextAttributesKey("STARBOUND_TEXT.TEXT", TEXT)
+    @JvmField val VALID_ESCAPE_KEY = createTextAttributesKey("STARBOUND_TEXT.VALID_ESCAPE", VALID_STRING_ESCAPE)
+    @JvmField val INVALID_ESCAPE_KEY = createTextAttributesKey("STARBOUND_TEXT.INVALID_ESCAPE", INVALID_STRING_ESCAPE)
+    @JvmField val BAD_CHARACTER_KEY = createTextAttributesKey("STARBOUND_TEXT.BAD_CHARACTER", BAD_CHARACTER)
+
+    @JvmField val COLORFUL_TEXT_KEYS = StarboundColor.map.mapValuesTo(mutableMapOf()) { (_, value) ->
+        val attributes = TEXT.defaultAttributes.clone().apply {
+            foregroundColor = value.color
+        }
+        createTextAttributesKey("STARBOUND_TEXT.COLORFUL_TEXT_${value.key.uppercase()}", attributes)
+    }
+
+    @JvmStatic
+    fun createColorfulTextKey(colorId: String, color: Color): TextAttributesKey {
+        val attributes = TEXT.defaultAttributes.clone().apply {
+            foregroundColor = color
+        }
+        return createTextAttributesKey("STARBOUND_TEXT.COLORFUL_TEXT_${colorId.uppercase()}", attributes)
+    }
 }

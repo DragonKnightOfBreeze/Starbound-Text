@@ -10,7 +10,7 @@
     And this is some ^#f8f8f8;custom color^reset; text.
   </code>
 </p>
-<p>Main Feature:</p>
+<p>Main Features:</p>
 <ol>
   <li>Syntax analysis.</li>
   <li>Code completion and code folding for color markers.</li>

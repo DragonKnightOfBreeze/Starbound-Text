@@ -1,17 +1,17 @@
 package icu.windea.starboundText.inspections
 
 import com.intellij.codeInspection.*
-import com.intellij.openapi.application.*
-import com.intellij.openapi.editor.*
-import com.intellij.openapi.project.*
+import com.intellij.openapi.application.runWriteAction
+import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.project.Project
 import com.intellij.psi.*
-import icu.windea.starboundText.*
+import icu.windea.starboundText.StarboundTextBundle
 import icu.windea.starboundText.psi.*
 
 class UnnecessaryMarkerInspection: LocalInspectionTool() {
 	companion object{
-		private fun _description1(name:String) = message("starboundText.inspection.unnecessaryColorMarker",name)
-		private val _description2 = message("starboundText.inspection.unnecessaryResetMarker")
+		private fun _description1(name:String) = StarboundTextBundle.message("starboundText.inspection.unnecessaryColorMarker",name)
+		private val _description2 = StarboundTextBundle.message("starboundText.inspection.unnecessaryResetMarker")
 	}
 	
 	override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
@@ -33,7 +33,7 @@ class UnnecessaryMarkerInspection: LocalInspectionTool() {
 	
 	private class RemoveMarker(element:PsiElement):LocalQuickFixAndIntentionActionOnPsiElement(element){
 		companion object{
-			private val _name = message("starboundText.quickFix.removeUnnecessaryMarker")
+			private val _name = StarboundTextBundle.message("starboundText.quickFix.removeUnnecessaryMarker")
 		}
 		
 		override fun getFamilyName() = _name

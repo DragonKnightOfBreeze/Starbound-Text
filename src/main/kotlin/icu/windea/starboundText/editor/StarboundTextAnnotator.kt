@@ -1,13 +1,15 @@
 package icu.windea.starboundText.editor
 
-import com.intellij.lang.annotation.*
-import com.intellij.lang.annotation.HighlightSeverity.*
-import com.intellij.openapi.project.*
-import com.intellij.psi.*
-import icu.windea.starboundText.*
+import com.intellij.lang.annotation.AnnotationHolder
+import com.intellij.lang.annotation.Annotator
+import com.intellij.lang.annotation.HighlightSeverity.ERROR
+import com.intellij.lang.annotation.HighlightSeverity.INFORMATION
+import com.intellij.openapi.project.DumbAware
+import com.intellij.psi.PsiElement
+import icu.windea.starboundText.StarboundTextBundle
 import icu.windea.starboundText.highlighter.StarboundTextAttributesKeys.COLORFUL_TEXT_KEYS
 import icu.windea.starboundText.highlighter.StarboundTextAttributesKeys.createColorfulTextKey
-import icu.windea.starboundText.psi.*
+import icu.windea.starboundText.psi.StarboundTextColorfulText
 
 class StarboundTextAnnotator : Annotator, DumbAware {
 	companion object{
@@ -21,13 +23,13 @@ class StarboundTextAnnotator : Annotator, DumbAware {
 				val colorId = colorMarker.colorCode?.text?:return
 				//判断colorId是否合法，又是否支持，如果合法且支持，则高亮彩色文本
 				if(!colorId.matches(colorIdRegex)) {
-					holder.newAnnotation(ERROR, message("starboundText.annotator.invalidColorId", colorId))
+					holder.newAnnotation(ERROR, StarboundTextBundle.message("starboundText.annotator.invalidColorId", colorId))
 						.range(colorMarker)
 						.create()
 				}else{
 					val color = element.color
 					if(color == null) {
-						holder.newAnnotation(ERROR, message("starboundText.annotator.unsupportedColorId", colorId))
+						holder.newAnnotation(ERROR, StarboundTextBundle.message("starboundText.annotator.unsupportedColorId", colorId))
 							.range(colorMarker)
 							.create()
 					} else {
@@ -46,11 +48,11 @@ class StarboundTextAnnotator : Annotator, DumbAware {
 		//		val colorId = element.colorCode?.text ?: return
 		//		//判断colorId是否合法，又是否支持，如果合法且支持，则高亮彩色文本
 		//		if(!colorId.matches(colorIdRegex)) {
-		//			holder.newAnnotation(ERROR, message("starboundText.annotator.invalidColorId", colorId)).create()
+		//			holder.newAnnotation(ERROR, StarboundTextBundle.message("starboundText.annotator.invalidColorId", colorId)).create()
 		//		}else{
 		//			val color = element.color
 		//			if(color == null) {
-		//				holder.newAnnotation(ERROR, message("starboundText.annotator.unsupportedColorId", colorId)).create()
+		//				holder.newAnnotation(ERROR, StarboundTextBundle.message("starboundText.annotator.unsupportedColorId", colorId)).create()
 		//			} else {
 		//				//高亮彩色文本
 		//				val string = element.nextSibling as? StarboundTextString ?:return

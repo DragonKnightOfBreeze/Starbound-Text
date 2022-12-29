@@ -1,9 +1,9 @@
 package icu.windea.starboundText.editor
 
-import com.intellij.openapi.editor.*
-import com.intellij.psi.*
-import icu.windea.starboundText.psi.*
-import java.awt.*
+import com.intellij.openapi.editor.ElementColorProvider
+import com.intellij.psi.PsiElement
+import icu.windea.starboundText.psi.StarboundTextColorfulText
+import java.awt.Color
 
 class StarboundTextColorProvider: ElementColorProvider {
 	override fun getColorFrom(element: PsiElement): Color? {

@@ -1,8 +1,8 @@
 package icu.windea.starboundText.editor
 
-import com.intellij.util.ui.*
-import java.awt.*
-import java.util.concurrent.*
+import com.intellij.util.ui.ColorIcon
+import java.awt.Color
+import java.util.concurrent.ConcurrentHashMap
 
 //TODO 更加完善的预定义颜色
 

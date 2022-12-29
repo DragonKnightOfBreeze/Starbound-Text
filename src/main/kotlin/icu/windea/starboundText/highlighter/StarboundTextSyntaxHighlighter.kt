@@ -1,10 +1,10 @@
 package icu.windea.starboundText.highlighter
 
-import com.intellij.openapi.editor.colors.*
-import com.intellij.openapi.fileTypes.*
-import com.intellij.psi.TokenType.*
-import com.intellij.psi.tree.*
-import icu.windea.starboundText.psi.*
+import com.intellij.openapi.editor.colors.TextAttributesKey
+import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
+import com.intellij.psi.TokenType.BAD_CHARACTER
+import com.intellij.psi.tree.IElementType
+import icu.windea.starboundText.psi.StarboundTextLexerAdapter
 import icu.windea.starboundText.psi.StarboundTextTypes.*
 
 class StarboundTextSyntaxHighlighter: SyntaxHighlighterBase(){

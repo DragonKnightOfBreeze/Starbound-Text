@@ -1,7 +1,6 @@
 package icu.windea.starboundText
 
-import org.jetbrains.annotations.*
-import java.awt.*
+import java.awt.Color
 
 fun String.toUrl(locationClass: Class<*>) = locationClass.getResource(this)!!
 
@@ -25,8 +24,4 @@ fun Color.toRgbString():String{
 		append(green.toString(16).padStart(2,'0'))
 		append(blue.toString(16).padStart(2,'0'))
 	}
-}
-
-fun message(@PropertyKey(resourceBundle = starboundTextBundleName) key: String, vararg params: Any): String {
-	return StarboundTextBundle.getMessage(key, *params)
 }

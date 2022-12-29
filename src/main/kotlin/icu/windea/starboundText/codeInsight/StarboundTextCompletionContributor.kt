@@ -37,6 +37,7 @@ class StarboundTextCompletionContributor : CompletionContributor() {
 		extend(CompletionType.BASIC, psiElement().afterLeaf("^"), ColorCodeCompletionProvider())
 	}
 
+	@Suppress("RedundantOverride")
 	override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
 		super.fillCompletionVariants(parameters, result)
 	}

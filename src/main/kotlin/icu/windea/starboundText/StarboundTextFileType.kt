@@ -1,13 +1,16 @@
 package icu.windea.starboundText
 
-import com.intellij.openapi.fileTypes.*
+import com.intellij.openapi.fileTypes.LanguageFileType
+import icons.StarboundTextIcons
 
-object StarboundTextFileType: LanguageFileType(StarboundTextLanguage){
-	override fun getName() = starboundTextName
+object StarboundTextFileType : LanguageFileType(StarboundTextLanguage) {
+	override fun getName() = "Starbound Text"
 
-	override fun getDescription() = starboundTextDescription
+	override fun getDescription() = StarboundTextBundle.message("filetype.starboundText.description")
+
+	override fun getDisplayName() = StarboundTextBundle.message("filetype.starboundText.displayName")
 
 	override fun getDefaultExtension() = ""
 
-	override fun getIcon() = starboundTextFileIcon
+	override fun getIcon() = StarboundTextIcons.StarboundTextFile
 }

@@ -29,7 +29,3 @@ Note:
 This plugin does not provide default file extensions to associate `Starbound Text` language, 
 please customize a File Type or use Language Injection.
 The language ID is `STARBOUND_TEXT`.
-    
-# Reference
-
-* More information: [plugin.xml](src/main/resources/META-INF/plugin.xml)

@@ -1,8 +1,8 @@
 package icu.windea.starboundText.psi
 
-import com.intellij.openapi.project.*
-import com.intellij.psi.*
-import icu.windea.starboundText.*
+import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiFileFactory
+import icu.windea.starboundText.StarboundTextLanguage
 
 object StarboundTextElementFactory {
 	@JvmStatic

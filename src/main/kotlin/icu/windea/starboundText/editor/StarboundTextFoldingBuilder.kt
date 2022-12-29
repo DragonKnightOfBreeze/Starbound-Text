@@ -1,11 +1,14 @@
 package icu.windea.starboundText.editor
 
-import com.intellij.lang.*
-import com.intellij.lang.folding.*
-import com.intellij.openapi.editor.*
-import com.intellij.openapi.project.*
-import com.intellij.psi.*
-import icu.windea.starboundText.*
+import com.intellij.lang.ASTNode
+import com.intellij.lang.folding.FoldingBuilder
+import com.intellij.lang.folding.FoldingDescriptor
+import com.intellij.openapi.editor.Document
+import com.intellij.openapi.editor.FoldingGroup
+import com.intellij.openapi.project.DumbAware
+import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiRecursiveElementVisitor
+import icu.windea.starboundText.foldingPlaceholder
 import icu.windea.starboundText.psi.*
 
 //折叠颜色标记

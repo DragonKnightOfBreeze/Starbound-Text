@@ -83,7 +83,7 @@ tasks {
     }
     runIde {
         systemProperties["idea.is.internal"] = true
-        jvmArgs("-Xmx4096m") //自定义JVM参数
+        jvmArgs("-Xmx4096m")
     }
     publishPlugin {
         token.set(System.getenv("IDEA_TOKEN"))

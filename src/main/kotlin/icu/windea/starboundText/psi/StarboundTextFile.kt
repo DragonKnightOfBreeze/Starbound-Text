@@ -1,8 +1,9 @@
 package icu.windea.starboundText.psi
 
-import com.intellij.extapi.psi.*
-import com.intellij.psi.*
-import icu.windea.starboundText.*
+import com.intellij.extapi.psi.PsiFileBase
+import com.intellij.psi.FileViewProvider
+import icu.windea.starboundText.StarboundTextFileType
+import icu.windea.starboundText.StarboundTextLanguage
 
 class StarboundTextFile(
 	viewProvider: FileViewProvider
