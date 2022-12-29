@@ -4,6 +4,8 @@
 
 [Github](https://github.com/DragonKnightOfBreeze/Starbound-Text)
 
+[Plugin Marketplace Page](https://plugins.jetbrains.com/plugin/18078-starbound-text)
+
 Starbound富文本支持。
 
 这个插件用于支持一种Starbound所使用的富文本语言，编写这个插件是为了便于维护和更新

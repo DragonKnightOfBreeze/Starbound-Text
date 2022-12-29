@@ -4,6 +4,8 @@
 
 [Github](https://github.com/DragonKnightOfBreeze/Starbound-Text)
 
+[Plugin Marketplace Page](https://plugins.jetbrains.com/plugin/18078-starbound-text)
+
 Starbound rich text support.
 
 This plugin is developed to support a rich text language used by Starbound for helping maintaining and updating
